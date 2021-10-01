@@ -63,6 +63,7 @@ def get_contract(contract_name):
     else:
         try:
             contract_address = config["networks"][network.show_active()][contract_name]
+            print("addresstt: {contract_address}");
             contract = Contract.from_abi(
                 contract_type._name, contract_address, contract_type.abi
             )
@@ -85,7 +86,7 @@ def fund_with_link(
     contract_address, account=None, link_token=None, amount=1000000000000000000
 ):
     account = account if account else get_account()
-    link_token = link_token if link_token else get_contract("link_token")
+    link_token = link_token if link_token else '0x01be23585060835e02b77ef475b0cc51aa1e0709'
     tx = interface.LinkTokenInterface(link_token).transfer(
         contract_address, amount, {"from": account}
     )

@@ -3,7 +3,8 @@ pragma solidity 0.6.6;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
 
-contract AdvancedCollectible is ERC721, VRFConsumerBase {
+contract AdvancedCollectible is ERC721, VRFConsumerBase
+{
     uint256 public tokenCounter;
     enum Breed{PUG, SHIBA_INU, ST_BERNARD}
     // add other things
