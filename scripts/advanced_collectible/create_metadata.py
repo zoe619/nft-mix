@@ -80,6 +80,7 @@ def upload_to_ipfs(filepath):
         response = requests.post(ipfs_url + "/api/v0/add",
                                  files={"file": image_binary})
         ipfs_hash = response.json()["Hash"]
+        # remove the / in the image file path and fetch the last part: pub.png
         filename = filepath.split("/")[-1:][0]
         image_uri = "https://ipfs.io/ipfs/{}?filename={}".format(
             ipfs_hash, filename)

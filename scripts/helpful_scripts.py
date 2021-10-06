@@ -13,7 +13,7 @@ from brownie import (
 OPENSEA_FORMAT = "https://testnets.opensea.io/assets/{}/{}"
 NON_FORKED_LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["hardhat", "development", "ganache"]
 LOCAL_BLOCKCHAIN_ENVIRONMENTS = NON_FORKED_LOCAL_BLOCKCHAIN_ENVIRONMENTS + [
-    "mainnet-fork",
+    "mainnet-fork-james",
     "binance-fork",
     "matic-fork",
 ]

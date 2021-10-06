@@ -12,7 +12,8 @@ contract AdvancedCollectible is ERC721, VRFConsumerBase
     mapping(bytes32 => string) public requestIdToTokenURI;
     mapping(uint256 => Breed) public tokenIdToBreed;
     mapping(bytes32 => uint256) public requestIdToTokenId;
-    event requestedCollectible(bytes32 indexed requestId); 
+    event requestedCollectible(bytes32 indexed requestId);
+    event breedAssigned(uint256 indexed tokenId, Breed breed); 
 
 
     bytes32 internal keyHash;
@@ -44,6 +45,7 @@ contract AdvancedCollectible is ERC721, VRFConsumerBase
         _setTokenURI(newItemId, tokenURI);
         Breed breed = Breed(randomNumber % 3); 
         tokenIdToBreed[newItemId] = breed;
+        emit breedAssigned(newItemId, breed);
         requestIdToTokenId[requestId] = newItemId;
         tokenCounter = tokenCounter + 1;
     }
